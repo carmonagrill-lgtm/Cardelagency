@@ -1,0 +1,131 @@
+/* ============================================================
+   ARCHIVO: css/variables.css
+   PROPÓSITO: Sistema de diseño centralizado — Design Tokens
+   Modifica aquí para cambios globales de marca.
+   ============================================================ */
+
+:root {
+
+  /* ── PALETA DE COLORES ─────────────────────────────────── */
+
+  /* Fondos */
+  --color-bg-primary:     #09090f;   /* Fondo principal oscuro */
+  --color-bg-secondary:   #111118;   /* Secciones alternadas */
+  --color-bg-surface:     #16161f;   /* Tarjetas y superficies */
+  --color-bg-elevated:    #1e1e2a;   /* Elementos elevados / hover */
+  --color-bg-overlay:     rgba(9, 9, 15, 0.85); /* Overlays / modales */
+
+  /* Acento principal — Ámbar Dorado */
+  --color-accent:         #f5a623;
+  --color-accent-light:   #ffc057;
+  --color-accent-dark:    #c47f0e;
+  --color-accent-muted:   rgba(245, 166, 35, 0.12);
+  --color-accent-glow:    rgba(245, 166, 35, 0.25);
+
+  /* Acento secundario — Dorado oscuro/Cobre (Paleta unificada) */
+  --color-secondary:      #d48812;
+  --color-secondary-muted: rgba(245, 166, 35, 0.12);
+
+  /* Texto */
+  --color-text-primary:   #f0ede8;   /* Texto principal */
+  --color-text-secondary: #a09c95;   /* Texto secundario / subtítulos */
+  --color-text-muted:     #5e5b56;   /* Texto deshabilitado */
+  --color-text-inverse:   #09090f;   /* Texto sobre fondo claro */
+
+  /* Bordes */
+  --color-border:         rgba(240, 237, 232, 0.08);
+  --color-border-accent:  rgba(245, 166, 35, 0.35);
+
+  /* Estados */
+  --color-success:        #22c55e;
+  --color-error:          #ef4444;
+
+  /* ── TIPOGRAFÍA ────────────────────────────────────────── */
+
+  /* Familias */
+  --font-display:   'Fraunces', Georgia, serif;      /* Titulares elegantes */
+  --font-body:      'DM Sans', 'Helvetica Neue', sans-serif; /* Cuerpo legible */
+  --font-mono:      'JetBrains Mono', monospace;    /* Etiquetas / código */
+
+  /* Escala tipográfica (clamp = fluid typography) */
+  --text-xs:    clamp(0.70rem, 1.2vw, 0.75rem);
+  --text-sm:    clamp(0.82rem, 1.5vw, 0.875rem);
+  --text-base:  clamp(0.95rem, 1.8vw, 1rem);
+  --text-lg:    clamp(1.05rem, 2vw, 1.125rem);
+  --text-xl:    clamp(1.15rem, 2.5vw, 1.25rem);
+  --text-2xl:   clamp(1.35rem, 3vw, 1.5rem);
+  --text-3xl:   clamp(1.65rem, 4vw, 2rem);
+  --text-4xl:   clamp(2.1rem, 5vw, 2.75rem);
+  --text-5xl:   clamp(2.8rem, 7vw, 4rem);
+  --text-6xl:   clamp(3.5rem, 9vw, 5.5rem);
+
+  /* Pesos */
+  --weight-light:   300;
+  --weight-regular: 400;
+  --weight-medium:  500;
+  --weight-semibold:600;
+  --weight-bold:    700;
+  --weight-black:   900;
+
+  /* Interlineado */
+  --leading-tight:  1.15;
+  --leading-snug:   1.35;
+  --leading-normal: 1.6;
+  --leading-loose:  1.85;
+
+  /* Tracking (letter-spacing) */
+  --tracking-tight:  -0.02em;
+  --tracking-normal:  0em;
+  --tracking-wide:    0.05em;
+  --tracking-widest:  0.15em;
+
+  /* ── ESPACIADO ─────────────────────────────────────────── */
+  --space-1:    0.25rem;   /*  4px */
+  --space-2:    0.5rem;    /*  8px */
+  --space-3:    0.75rem;   /* 12px */
+  --space-4:    1rem;      /* 16px */
+  --space-5:    1.25rem;   /* 20px */
+  --space-6:    1.5rem;    /* 24px */
+  --space-8:    2rem;      /* 32px */
+  --space-10:   2.5rem;    /* 40px */
+  --space-12:   3rem;      /* 48px */
+  --space-16:   4rem;      /* 64px */
+  --space-20:   5rem;      /* 80px */
+  --space-24:   6rem;      /* 96px */
+  --space-32:   8rem;      /* 128px */
+
+  /* ── RADIOS DE BORDE ──────────────────────────────────── */
+  --radius-sm:    4px;
+  --radius-md:    8px;
+  --radius-lg:    14px;
+  --radius-xl:    20px;
+  --radius-2xl:   28px;
+  --radius-full:  9999px;
+
+  /* ── SOMBRAS ───────────────────────────────────────────── */
+  --shadow-sm:    0 1px 3px rgba(0,0,0,0.4);
+  --shadow-md:    0 4px 16px rgba(0,0,0,0.45);
+  --shadow-lg:    0 8px 32px rgba(0,0,0,0.55);
+  --shadow-xl:    0 16px 48px rgba(0,0,0,0.65);
+  --shadow-accent: 0 0 24px var(--color-accent-glow);
+  --shadow-accent-strong: 0 0 40px rgba(245, 166, 35, 0.4);
+
+  /* ── TRANSICIONES ─────────────────────────────────────── */
+  --transition-fast:   150ms ease;
+  --transition-base:   250ms ease;
+  --transition-slow:   400ms ease;
+  --transition-spring: 350ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* ── BREAKPOINTS (para referencia en JS) ─────────────── */
+  --bp-sm:   576px;
+  --bp-md:   768px;
+  --bp-lg:   1024px;
+  --bp-xl:   1280px;
+  --bp-2xl:  1536px;
+
+  /* ── LAYOUT ───────────────────────────────────────────── */
+  --container-max:    1200px;
+  --container-narrow: 780px;
+  --nav-height:       72px;
+  --section-padding:  clamp(5rem, 10vw, 8rem);
+}

@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ── SEO & META ──────────────────────────────────────── -->
+  <title>Cardel — Tu negocio existe. Ahora que te encuentren.</title>
+  <meta name="description"
+    content="Cardel — Agencia de marketing digital en Monterrey, NL. Digitalizamos negocios locales: páginas web, Google Maps, QR, WhatsApp Bots y Meta Ads." />
+  <meta name="keywords"
+    content="marketing digital Monterrey, páginas web Monterrey, Google Maps negocio, WhatsApp Bot, Meta Ads Monterrey, agencia digital regia" />
+  <meta name="author" content="Cardel" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://cardel.netlify.app/" />
+
+  <!-- ── OPEN GRAPH (previsualizaciones en redes) ─────────── -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:locale"      content="es_MX" />
+  <meta property="og:title"       content="Cardel — Tu negocio existe. Ahora que te encuentren." />
+  <meta property="og:description" content="Agencia de marketing digital en Monterrey. Transformamos negocios locales en marcas digitales que generan clientes reales." />
+  <meta property="og:url"         content="https://cardel.netlify.app/" />
+  <meta property="og:image"       content="assets/brand/og-image.png" />
+
+  <!-- ── FUENTES: Google Fonts ────────────────────────────── -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
+
+  <!-- ── ICONOS: Boxicons CDN ─────────────────────────────── -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+
+  <!-- ── HOJAS DE ESTILO (en orden de dependencia) ────────── -->
+  <link rel="stylesheet" href="css/variables.css" />  <!-- 1. Design tokens -->
+  <link rel="stylesheet" href="css/global.css" />     <!-- 2. Reset + navbar + footer -->
+  <link rel="stylesheet" href="css/styles.css" />     <!-- 3. Secciones específicas -->
+
+  <!-- ── FAVICON ───────────────────────────────────────────── -->
+<link rel="icon" type="image/x-icon" href="favicon.ico" />
+
+</head>
+
+<body>
+
+  <!-- ============================================================
+       CURSOR PERSONALIZADO PREMIUM
+       Punto central dorado + anillo flotante con efecto Lerp.
+       aria-hidden="true" los excluye de lectores de pantalla.
+       ============================================================ -->
+  <div class="cursor-dot"  id="cursorDot"  aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+  <!-- ============================================================
+       CANVAS DE PARTÍCULAS
+       Pantalla completa, fijo, pointer-events:none para no
+       interferir con ningún clic del usuario.
+       ============================================================ -->
+  <canvas class="particles-canvas" id="particlesCanvas" aria-hidden="true"></canvas>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       NAVBAR — Fija, responsiva, con efecto frosted glass
+       ══════════════════════════════════════════════════════ -->
+  <header class="navbar" role="banner">
+    <div class="container">
+
+      <a href="#" class="nav-logo" aria-label="Cardel — Inicio">
+        Cardel<span>.</span>
+      </a>
+
+      <nav class="nav-menu" id="nav-menu" role="navigation" aria-label="Menú principal">
+        <a href="#servicios" class="nav-link">Servicios</a>
+        <a href="#paquetes"  class="nav-link">Paquetes</a>
+        <a href="#por-que"   class="nav-link">¿Por qué Cardel?</a>
+        <a href="#contacto"  class="nav-link">Contacto</a>
+        <a
+          href="https://wa.me/528184620045?text=Hola%20Cardel%2C%20me%20gustar%C3%ADa%20obtener%20mi%20presencia%20digital."
+          class="btn btn-primary nav-cta"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Solicitar presencia digital por WhatsApp">
+          <i class='bx bxl-whatsapp'></i>
+          Quiero mi presencia digital
+        </a>
+      </nav>
+
+      <button
+        class="nav-toggle"
+        id="nav-toggle"
+        aria-controls="nav-menu"
+        aria-expanded="false"
+        aria-label="Abrir menú">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+
+    </div>
+  </header>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       MAIN — Contenido principal de la página
+       ══════════════════════════════════════════════════════ -->
+  <main id="main-content">
+
+    <!-- ─────────────────────────────────────────────────────
+         01. SECCIÓN HERO
+         ─────────────────────────────────────────────────── -->
+    <section class="hero" id="inicio" aria-label="Inicio">
+
+      <div class="hero-bg" aria-hidden="true">
+        <div class="hero-orb-1"></div>
+        <div class="hero-orb-2"></div>
+        <div class="hero-grid"></div>
+        <div class="hero-accent-line"></div>
+      </div>
+
+      <div class="container">
+        <div class="hero-content">
+
+          <div class="hero-badge" aria-label="Agencia en Monterrey">
+            <span class="hero-badge-dot" aria-hidden="true"></span>
+            Agencia Digital — Monterrey, N.L.
+          </div>
+
+          <h1 class="hero-headline">
+            Tu negocio merece ser<br />
+            <em class="accent-word">encontrado</em><br />
+            en Monterrey.
+          </h1>
+
+          <p class="hero-subheadline">
+            En Cardel transformamos negocios locales en marcas digitales
+            que generan clientes reales. Desde tu web hasta tus anuncios,
+            lo hacemos todo — rápido y sin rodeos.
+          </p>
+
+          <div class="hero-cta-group">
+            <a
+              href="#paquetes"
+              class="btn btn-primary"
+              aria-label="Ver planes y paquetes">
+              <i class='bx bx-rocket' aria-hidden="true"></i>
+              Ver mis opciones
+            </a>
+            <a
+              href="https://wa.me/528184620045?text=Hola%20Cardel%2C%20quiero%20hablar%20con%20un%20asesor%20para%20digitalizar%20mi%20negocio."
+              class="btn btn-outline"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Hablar con asesor por WhatsApp">
+              <i class='bx bxl-whatsapp' aria-hidden="true"></i>
+              Hablar con un asesor
+            </a>
+          </div>
+
+          <p class="wa-indicator" aria-label="Respuesta rápida por WhatsApp">
+            <i class='bx bxl-whatsapp' aria-hidden="true"></i>
+            Respondemos en minutos por WhatsApp
+          </p>
+
+          <div class="hero-stats" aria-label="Estadísticas de Cardel">
+
+            <div class="hero-stat-item">
+              <span class="hero-stat-number">
+                <span data-count="47" data-suffix="">47</span><span class="accent">+</span>
+              </span>
+              <span class="hero-stat-label">Negocios digitalizados</span>
+            </div>
+
+            <div class="hero-stat-item">
+              <span class="hero-stat-number">
+                <span data-count="3" data-suffix="">3</span><span class="accent">+</span>
+              </span>
+              <span class="hero-stat-label">Años de experiencia</span>
+            </div>
+
+            <div class="hero-stat-item">
+              <span class="hero-stat-number">
+                <span class="accent">24</span>/7
+              </span>
+              <span class="hero-stat-label">Soporte disponible</span>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+    <div class="scroll-indicator" aria-hidden="true">
+        <div class="scroll-line"></div>
+      </div>
+
+    </section>
+
+
+    <!-- ─────────────────────────────────────────────────────
+         02. SECCIÓN SERVICIOS
+         ─────────────────────────────────────────────────── -->
+    <section class="services" id="servicios" aria-label="Nuestros servicios">
+      <div class="container">
+
+        <header class="services-header reveal">
+          <p class="section-label">Lo que hacemos</p>
+          <h2 class="section-title">
+            Herramientas digitales para<br />
+            negocios que quieren <em>crecer</em>
+          </h2>
+          <div class="divider"></div>
+          <p class="section-subtitle">
+            Le damos presencia digital real a negocios locales de Monterrey
+            y el área metropolitana. Estas son las herramientas que usamos:
+          </p>
+        </header>
+
+        <div class="services-grid" role="list">
+
+          <article class="service-card reveal reveal-delay-1" role="listitem">
+            <div class="service-icon" aria-hidden="true">
+              <i class='bx bx-globe'></i>
+            </div>
+            <h3 class="service-name">Página Web Profesional</h3>
+            <p class="service-desc">
+              Diseñamos tu sitio web desde cero: rápido, moderno y optimizado
+              para que tus clientes te encuentren y confíen en ti.
+            </p>
+            <span class="service-tag">Web Design</span>
+          </article>
+
+          <article class="service-card reveal reveal-delay-2" role="listitem">
+            <div class="service-icon" aria-hidden="true">
+              <i class='bx bx-qr-scan'></i>
+            </div>
+            <h3 class="service-name">Código QR Personalizado</h3>
+            <p class="service-desc">
+              Creamos tu QR con tu branding para conectar el mundo físico
+              con tu presencia digital en segundos.
+            </p>
+            <span class="service-tag">Branding</span>
+          </article>
+
+          <article class="service-card reveal reveal-delay-3" role="listitem">
+            <div class="service-icon" aria-hidden="true">
+              <i class='bx bxl-google'></i>
+            </div>
+            <h3 class="service-name">Alta en Google Maps</h3>
+            <p class="service-desc">
+              Ponemos tu negocio en el mapa. Literalmente. Para que los
+              clientes que ya te buscan te encuentren.
+            </p>
+            <span class="service-tag">Local SEO</span>
+          </article>
+
+          <article class="service-card reveal reveal-delay-1" role="listitem">
+            <div class="service-icon" aria-hidden="true">
+              <i class='bx bxl-meta'></i>
+            </div>
+            <h3 class="service-name">Campañas de Meta Ads</h3>
+            <p class="service-desc">
+              Anuncios en Facebook e Instagram dirigidos exactamente a las
+              personas correctas en tu zona, en el momento correcto.
+            </p>
+            <span class="service-tag">Paid Media</span>
+          </article>
+
+          <article class="service-card reveal reveal-delay-2" role="listitem">
+            <div class="service-icon" aria-hidden="true">
+              <i class='bx bxl-whatsapp'></i>
+            </div>
+            <h3 class="service-name">Automatización de WhatsApp</h3>
+            <p class="service-desc">
+              Responde automáticamente a tus clientes en WhatsApp 24/7
+              sin que tengas que estar pegado al teléfono.
+            </p>
+            <span class="service-tag">Automatización</span>
+          </article>
+
+          <article class="service-card reveal reveal-delay-3" role="listitem">
+            <div class="service-icon" aria-hidden="true">
+              <i class='bx bxl-messenger'></i>
+            </div>
+            <h3 class="service-name">Automatización de Messenger</h3>
+            <p class="service-desc">
+              Convierte cada mensaje en Facebook en una oportunidad de venta
+              con flujos automáticos inteligentes.
+            </p>
+            <span class="service-tag">Automatización</span>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ─────────────────────────────────────────────────────
+         03. SECCIÓN POR QUÉ CARDEL
+         ─────────────────────────────────────────────────── -->
+    <section class="why" id="por-que" aria-label="Por qué elegir Cardel">
+      <div class="container">
+        <div class="why-inner">
+
+          <div class="why-text">
+            <p class="section-label reveal">Diferenciadores</p>
+            <h2 class="section-title reveal">
+              ¿Por qué elegir<br /><em>Cardel?</em>
+            </h2>
+            <div class="divider reveal"></div>
+            <p class="section-subtitle reveal">
+              No somos una agencia genérica. Somos de Monterrey
+              y entendemos lo que necesita un negocio local para
+              destacar en el mundo digital.
+            </p>
+
+            <div class="differentiators">
+
+              <article class="diff-item reveal reveal-delay-1">
+                <div class="diff-icon" aria-hidden="true">
+                  <i class='bx bx-rocket'></i>
+                </div>
+                <div class="diff-content">
+                  <h3>Resultados rápidos</h3>
+                  <p>
+                    No tardamos meses. Tu negocio empieza a tener presencia
+                    digital en días, no en semanas.
+                  </p>
+                </div>
+              </article>
+
+              <article class="diff-item reveal reveal-delay-2">
+                <div class="diff-icon" aria-hidden="true">
+                  <i class='bx bx-map-pin'></i>
+                </div>
+                <div class="diff-content">
+                  <h3>Enfoque local</h3>
+                  <p>
+                    Somos de Monterrey y conocemos el mercado regio. Sabemos
+                    cómo conectar contigo y con tus clientes.
+                  </p>
+                </div>
+              </article>
+
+              <article class="diff-item reveal reveal-delay-3">
+                <div class="diff-icon" aria-hidden="true">
+                  <i class='bx bx-support'></i>
+                </div>
+                <div class="diff-content">
+                  <h3>Acompañamiento real</h3>
+                  <p>
+                    No desaparecemos después de entregarte el proyecto.
+                    Estamos contigo en cada paso del camino.
+                  </p>
+                </div>
+              </article>
+
+            </div>
+          </div>
+
+          <div class="why-stats" aria-label="Métricas de Cardel">
+
+            <article class="stat-card stat-card--accent reveal">
+              <div class="stat-number">
+                <span data-count="47">47</span><span class="accent">+</span>
+              </div>
+              <div class="stat-label">Negocios digitalizados</div>
+            </article>
+
+            <article class="stat-card reveal reveal-delay-1">
+              <div class="stat-number">
+                <span data-count="98">98</span><span class="accent">%</span>
+              </div>
+              <div class="stat-label">Clientes satisfechos</div>
+            </article>
+
+            <article class="stat-card reveal reveal-delay-2">
+              <div class="stat-number">
+                <span data-count="3">3</span><span class="accent">+</span>
+              </div>
+              <div class="stat-label">Años de experiencia</div>
+            </article>
+
+            <article class="stat-card stat-card--full reveal reveal-delay-3">
+              <div class="stat-number">
+                <span class="accent">24</span>/7
+              </div>
+              <div class="stat-label">Soporte disponible</div>
+            </article>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ─────────────────────────────────────────────────────
+         04. SECCIÓN PRECIOS
+         ─────────────────────────────────────────────────── -->
+    <section class="pricing" id="paquetes" aria-label="Planes y precios">
+      <div class="container">
+
+        <header class="pricing-header reveal">
+          <p class="section-label">Paquetes</p>
+          <h2 class="section-title">
+            Elige el plan que se<br />adapta a tu <em>negocio</em>
+          </h2>
+          <div class="divider"></div>
+          <p class="section-subtitle">
+            Sin contratos largos. Sin letra chiquita. Solo resultados.
+          </p>
+        </header>
+
+        <div class="pricing-grid" role="list">
+
+          <!-- Plan 01: Presencia -->
+          <article class="plan-card reveal" aria-label="Plan Presencia">
+            <div class="plan-header">
+              <span class="plan-number">Plan 01</span>
+              <h3 class="plan-name">Presencia</h3>
+            </div>
+
+            <div class="plan-price">
+              <span class="price-currency">MXN</span>
+              <span class="price-amount">$2,999</span>
+              <span class="price-period">pago<br />único</span>
+            </div>
+
+            <ul class="plan-features" aria-label="Características del plan Presencia">
+              <li class="plan-feature">
+                <i class='bx bx-check' aria-label="Incluido"></i>
+                <span>Página web de 1 página (landing)</span>
+              </li>
+              <li class="plan-feature">
+                <i class='bx bx-check' aria-label="Incluido"></i>
+                <span>Código QR personalizado</span>
+              </li>
+              <li class="plan-feature">
+                <i class='bx bx-check' aria-label="Incluido"></i>
+                <span>Alta en Google Maps</span>
+              </li>
+              <li class="plan-feature plan-feature--disabled">
+                <i class='bx bx-x' aria-label="No incluido"></i>
+                <span>Campañas de Meta Ads</span>
+              </li>
+              <li class="plan-feature plan-feature--disabled">
+                <i class='bx bx-x' aria-label="No incluido"></i>
+                <span>Automatizaciones</span>
+              </li>
+            </ul>
+
+            <a
+              href="https://wa.me/528184620045?text=Hola%20Cardel%2C%20me%20interesa%20el%20Plan%20Presencia%20de%20%242%2C999."
+              class="btn btn-outline plan-cta"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Contratar Plan Presencia">
+              <i class='bx bxl-whatsapp'></i>
+              Quiero este plan
+            </a>
+          </article>
+
+          <!-- Plan 02: Crecimiento (DESTACADO) -->
+          <article class="plan-card plan-card--featured reveal" aria-label="Plan Crecimiento — más popular">
+            <div class="plan-badge" aria-label="Plan más popular">✦ Más Popular</div>
+
+            <div class="plan-header">
+              <span class="plan-number">Plan 02</span>
+              <h3 class="plan-name">Crecimiento</h3>
+            </div>
+
+            <div class="plan-price">
+              <span class="price-currency">MXN</span>
+              <span class="price-amount">$5,999</span>
+              <span class="price-period">pago<br />único</span>
+            </div>
+
+            <ul class="plan-features" aria-label="Características del plan Crecimiento">
+              <li class="plan-feature">
+                <i class='bx bx-check' aria-label="Incluido"></i>
+                <span>Página web hasta 5 secciones</span>
+              </li>
+              <li class="plan-feature">
+                <i class='bx bx-check' aria-label="Incluido"></i>
+                <span>Código QR personalizado</span>
+              </li>
+              <li class="plan-feature">
+                <i class='bx bx-check' aria-label="Incluido"></i>
+                <span>Alta en Google Maps</span>
+              </li>
+              <li class="plan-feature">
+                <i class='bx bx-check' aria-label="Incluido"></i>
+                <span>Campaña inicial de Meta Ads</span>
+              </li>
+              <li class="plan-feature">
+                <i class='bx bx-check' aria-label="Incluido"></i>
+                <span>Automatización de WhatsApp básica</span>
+              </li>
+              <li class="plan-feature">
+                <i class='bx bx-check' aria-label="Incluido"></i>
+                <span>Automatización de Messenger</span>
+              </li>
+            </ul>
+
+            <a
+              href="https://wa.me/528184620045?text=Hola%20Cardel%2C%20me%20interesa%20el%20Plan%20Crecimiento%20de%20%245%2C999."
+              class="btn btn-primary plan-cta"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Contratar Plan Crecimiento">
+              <i class='bx bxl-whatsapp'></i>
+              Quiero este plan
+            </a>
+          </article>
+
+          <!-- Plan 03: Dominio Digital -->
+          <article class="plan-card reveal reveal-delay-1" aria-label="Plan Dominio Digital">
+            <div class="plan-header">
+              <span class="plan-number">Plan 03</span>
+              <h3 class="plan-name">Dominio Digital</h3>
+            </div>
+
+            <div class="plan-price">
+              <span class="price-currency">MXN</span>
+              <span class="price-amount">$9,999</span>
+              <span class="price-period">pago<br />único</span>
+            </div>
+
+            <ul class="plan-features" aria-label="Características del plan Dominio Digital">
+              <li class="plan-feature">
+                <i class='bx bx-check' aria-label="Incluido"></i>
+                <span>Página web completa + blog</span>
+              </li>
+              <li class="plan-feature">
+                <i class='bx bx-check' aria-label="Incluido"></i>
+                <span>Código QR personalizado</span>
+              </li>
+              <li class="plan-feature">
+                <i class='bx bx-check' aria-label="Incluido"></i>
+                <span>Alta y optimización en Maps</span>
+              </li>
+              <li class="plan-feature">
+                <i class='bx bx-check' aria-label="Incluido"></i>
+                <span>Meta Ads (setup + primera campaña)</span>
+              </li>
+              <li class="plan-feature">
+                <i class='bx bx-check' aria-label="Incluido"></i>
+                <span>Automatización completa de WhatsApp</span>
+              </li>
+              <li class="plan-feature">
+                <i class='bx bx-check' aria-label="Incluido"></i>
+                <span>Automatización completa de Messenger</span>
+              </li>
+            </ul>
+
+            <a
+              href="https://wa.me/528184620045?text=Hola%20Cardel%2C%20me%20interesa%20el%20Plan%20Dominio%20Digital%20de%20%249%2C999."
+              class="btn btn-outline plan-cta"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Contratar Plan Dominio Digital">
+              <i class='bx bxl-whatsapp'></i>
+              Quiero este plan
+            </a>
+          </article>
+
+        </div>
+
+        <p class="pricing-note reveal">
+          ¿Necesitas algo diferente?
+          <a
+            href="https://wa.me/528184620045?text=Hola%20Cardel%2C%20me%20gustar%C3%ADa%20un%20plan%20personalizado%20para%20mi%20negocio."
+            target="_blank"
+            rel="noopener noreferrer">
+            Hablemos y lo armamos juntos. →
+          </a>
+        </p>
+
+      </div>
+    </section>
+
+
+    <!-- ─────────────────────────────────────────────────────
+         05. SECCIÓN PROCESO
+         ─────────────────────────────────────────────────── -->
+    <section class="process" id="proceso" aria-label="Cómo trabajamos">
+      <div class="container">
+
+        <header class="process-header reveal">
+          <p class="section-label">Proceso</p>
+          <h2 class="section-title">
+            Así de fácil es <em>empezar</em>
+          </h2>
+          <div class="divider"></div>
+          <p class="section-subtitle">
+            Sin complicaciones, sin burocracia. Te acompañamos desde
+            la primera llamada hasta que tu negocio esté en línea.
+          </p>
+        </header>
+
+        <div class="process-steps" role="list">
+
+          <article class="step-item reveal reveal-delay-1" role="listitem">
+            <div class="step-number" aria-label="Paso 1">01</div>
+            <div>
+              <h3 class="step-title">Platicamos</h3>
+              <p class="step-desc">
+                Nos cuentas de tu negocio, tus metas y qué necesitas. Sin compromisos.
+              </p>
+            </div>
+          </article>
+
+          <article class="step-item reveal reveal-delay-2" role="listitem">
+            <div class="step-number" aria-label="Paso 2">02</div>
+            <div>
+              <h3 class="step-title">Planeamos</h3>
+              <p class="step-desc">
+                Diseñamos la estrategia digital perfecta, adaptada a tu negocio y presupuesto.
+              </p>
+            </div>
+          </article>
+
+          <article class="step-item reveal reveal-delay-3" role="listitem">
+            <div class="step-number" aria-label="Paso 3">03</div>
+            <div>
+              <h3 class="step-title">Lanzamos</h3>
+              <p class="step-desc">
+                Ejecutamos todo con rapidez y calidad. En días, no meses.
+              </p>
+            </div>
+          </article>
+
+          <article class="step-item reveal reveal-delay-4" role="listitem">
+            <div class="step-number" aria-label="Paso 4">04</div>
+            <div>
+              <h3 class="step-title">Crecemos</h3>
+              <p class="step-desc">
+                Te acompañamos para que los resultados se mantengan y sigan mejorando.
+              </p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ─────────────────────────────────────────────────────
+         06. SECCIÓN CONTACTO
+         ─────────────────────────────────────────────────── -->
+    <section class="contact" id="contacto" aria-label="Contacto">
+      <div class="container">
+        <div class="contact-inner">
+
+          <p class="section-label reveal">Contacto</p>
+
+          <h2 class="section-title reveal">
+            ¿Listo para que<br /><em>te encuentren?</em>
+          </h2>
+
+          <p class="section-subtitle reveal">
+            Escríbenos hoy y dale a tu negocio la presencia digital que merece.
+            Sin contratos, sin letra chiquita, sin complicaciones.
+          </p>
+
+          <div class="contact-cta-group reveal">
+            <a
+              href="https://wa.me/528184620045?text=Hola%20Cardel%2C%20me%20interesa%20digitalizar%20mi%20negocio%20en%20Monterrey."
+              class="btn btn-primary"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Escribir por WhatsApp">
+              <i class='bx bxl-whatsapp'></i>
+              Escríbenos por WhatsApp
+            </a>
+            <a
+              href="mailto:cardelagency@gmail.com"
+              class="btn btn-outline"
+              aria-label="Enviar correo a Cardel">
+              <i class='bx bx-envelope'></i>
+              Mándanos un correo
+            </a>
+          </div>
+
+          <div class="contact-info-grid" role="list">
+
+            <div class="contact-info-item reveal reveal-delay-1" role="listitem">
+              <i class='bx bx-map-pin' aria-hidden="true"></i>
+              <span class="contact-info-label">Ubicación</span>
+              <span class="contact-info-value">Monterrey, N.L., México</span>
+            </div>
+
+            <div class="contact-info-item reveal reveal-delay-2" role="listitem">
+              <i class='bx bx-phone' aria-hidden="true"></i>
+              <span class="contact-info-label">Teléfono</span>
+              <a
+                href="tel:+528184620045"
+                class="contact-info-value"
+                aria-label="Llamar al +52 81 8462 0045">
+                +52 81 8462 0045
+              </a>
+            </div>
+
+            <div class="contact-info-item reveal reveal-delay-3" role="listitem">
+              <i class='bx bx-envelope' aria-hidden="true"></i>
+              <span class="contact-info-label">Correo</span>
+              <a
+                href="mailto:cardelagency@gmail.com"
+                class="contact-info-value"
+                aria-label="Enviar correo a cardelagency@gmail.com">
+                cardelagency@gmail.com
+              </a>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       FOOTER
+       ══════════════════════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+          <a href="#inicio" class="footer-logo" aria-label="Cardel — Ir al inicio">
+            Cardel<span>.</span>
+          </a>
+          <p class="footer-tagline">
+            Digitalizando negocios locales en Monterrey, Nuevo León.
+            Hacemos que te encuentren.
+          </p>
+          <nav class="footer-social" aria-label="Redes sociales de Cardel">
+            <a href="https://facebook.com" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook de Cardel">
+              <i class='bx bxl-facebook'></i>
+            </a>
+            <a href="https://instagram.com" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Cardel">
+              <i class='bx bxl-instagram'></i>
+            </a>
+            <a href="https://wa.me/528184620045" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp de Cardel">
+              <i class='bx bxl-whatsapp'></i>
+            </a>
+          </nav>
+        </div>
+
+        <div>
+          <p class="footer-col-title">Navegación</p>
+          <ul class="footer-links">
+            <li><a href="#servicios"><i class='bx bx-chevron-right'></i> Servicios</a></li>
+            <li><a href="#paquetes"><i class='bx bx-chevron-right'></i> Paquetes</a></li>
+            <li><a href="#por-que"><i class='bx bx-chevron-right'></i> ¿Por qué Cardel?</a></li>
+            <li><a href="#proceso"><i class='bx bx-chevron-right'></i> Proceso</a></li>
+            <li><a href="#contacto"><i class='bx bx-chevron-right'></i> Contacto</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="footer-col-title">Contáctanos</p>
+          <ul class="footer-links">
+            <li>
+              <a href="https://wa.me/528184620045" target="_blank" rel="noopener noreferrer">
+                <i class='bx bxl-whatsapp'></i> WhatsApp
+              </a>
+            </li>
+            <li>
+              <a href="mailto:cardelagency@gmail.com">
+                <i class='bx bx-envelope'></i> cardelagency@gmail.com
+              </a>
+            </li>
+            <li>
+              <a href="tel:+528184620045">
+                <i class='bx bx-phone'></i> +52 81 8462 0045
+              </a>
+            </li>
+            <li>
+              <a href="https://maps.google.com/?q=Monterrey,NL,Mexico" target="_blank" rel="noopener noreferrer">
+                <i class='bx bx-map'></i> Monterrey, N.L., México
+              </a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copy">
+          © <span id="current-year">2025</span> Cardel. Todos los derechos reservados.
+        </p>
+        <p class="footer-location">
+          <i class='bx bx-map-pin' aria-hidden="true"></i>
+          Monterrey, N.L., México
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       SCRIPTS — Al final del body para no bloquear render
+       ORDEN IMPORTANTE:
+       1. main.js    → navbar, scroll, counters, reveal
+       2. animations.js → cursor, partículas, bordes (NUEVO)
+       ══════════════════════════════════════════════════════ -->
+  <script src="js/main.js" defer></script>
+  <script src="js/animations.js" defer></script>
+
+</body>
+</html>
